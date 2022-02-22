@@ -57,9 +57,11 @@ function addTask(board) {
 
     addBtn.addEventListener('click', () => {
         const newItem = document.createElement('div');
+        
         newItem.classList.add('list__item');
+        newItem.innerHTML = `<p> ${value} </p>`;
         newItem.draggable = true;
-        newItem.textContent = value;
+        // newItem.textContent = value;
         lists.append(newItem);
 
         clear();
@@ -172,4 +174,4 @@ function delBoard () {
         }); 
     }
 }
-delBoard();
+// delBoard();

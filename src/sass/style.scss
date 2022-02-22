@@ -37,7 +37,12 @@
             .list {
                 min-width: 40px;
                 min-height: 40px;
+                display: grid;
+                grid-template-rows: minmax(37px, auto);
+                grid-auto-rows: minmax(37px, auto);
+                
                 &__item {
+                    width: 230px;
                     background-color: #fefefe;
                     border-radius: 3px;
                     padding: 10px;
@@ -48,6 +53,9 @@
                     font-size: 14px;
                     outline: none;
                     border: none;
+                    &:hover {
+                        background-color: rgba(128, 170, 197, 0.637);
+                    }
 
                 }
             }
