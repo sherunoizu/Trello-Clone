@@ -6,12 +6,36 @@
     overflow: hidden;
 }
 
+
+.header {
+    width: 100vw;
+    height: 50px;
+    padding-left: 20px;
+    position: fixed;
+    background-color: hsla(0, 0%, 0%, 0.16);
+    &__wrapper {
+        display: flex;
+        width: 260px;
+        justify-content: space-between;
+    }
+    &__name {
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 50px;
+        
+    }
+    &__logo {
+        height: 50px;
+    }
+}
+
 .app {
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    padding: 50px 0;
+    padding: 80px 0 50px 0;
     background: url('../img/bg/bg.png') center / cover no-repeat;
     .boards {
         display: flex;
@@ -22,14 +46,14 @@
             align-self: baseline; //Выравнивание по размеру контента внутри
             min-width: 250px;
             width: 10%;
-            background-color: rgba(0,0,0, .5);
+            background-color: #ebecf0;
             margin: 0 15px;
             padding: 10px;
             transition: .3s all ease;
             border-radius: 3px;
             .title {
                 padding: 5px;
-                color: white;
+                color: black;
                 &:focus {
                     outline: 1px solid rgba(168, 168, 168, .45);
                 }
@@ -54,7 +78,7 @@
                     outline: none;
                     border: none;
                     &:hover {
-                        background-color: rgba(128, 170, 197, 0.637);
+                        background-color: rgba(128, 170, 197, 1);
                     }
 
                 }
