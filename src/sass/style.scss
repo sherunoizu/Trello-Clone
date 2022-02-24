@@ -72,13 +72,20 @@
                     padding: 10px;
                     text-align: center;
                     margin: 4px 0;
-                    cursor: pointer;
+                    cursor: move;
+                    list-style: none;
                     font-weight: 400;
                     font-size: 14px;
                     outline: none;
                     border: none;
-                    &:hover {
+                    // &:hover {
+                    //     background-color: rgba(128, 170, 197, 1);
+                    // }
+                    &.selected {
+                        opacity: 0;
+                        transition: all .1s;
                         background-color: rgba(128, 170, 197, 1);
+                        transform: rotate(3deg);
                     }
 
                 }
