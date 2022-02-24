@@ -1,4 +1,4 @@
-function dragNdrop () {
+function dragNdropBetweendBoards () {
     const listItems = document.querySelectorAll('.list__item');
     const lists = document.querySelectorAll('.list');
 
