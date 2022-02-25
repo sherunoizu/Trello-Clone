@@ -156,10 +156,10 @@ function dragNdrop (board) {
         const currentElement = evt.target;
 
         const isMoveable = activeElement !== currentElement &&
-        currentElement.classList.contains(`.list__item`);
+        currentElement.classList.contains(`list__item`);
 
 
-        if (isMoveable) {
+        if (!isMoveable) {
             return;
         }
 
@@ -199,22 +199,28 @@ function newBarConstr () {
     const wrapper = document.createElement(`div`);
     wrapper.classList.add(`bar_edit__wrapper`);
     newBar.append(wrapper);
-    const item = document.createElement(`div`);
-    item.classList.add(`bar_edit__items`);
+    const item_1 = document.createElement(`div`);
+    item_1.classList.add(`bar_edit__items`);
+    const item_2 = document.createElement(`div`);
+    item_2.classList.add(`bar_edit__items`);
+    const item_3 = document.createElement(`div`);
+    item_3.classList.add(`bar_edit__items`);
     const img_1 = document.createElement(`img`);
-    img_1.src = ``;
+    img_1.src = `icons/edit.svg`;
     img_1.alt = ``;
-    item.append(img_1);
+    item_1.append(img_1);
     const img_2 = document.createElement(`img`);
-    img_2.src = `icons/edit.svg`;
+    img_2.src = `icons/transfer.svg`;
     img_2.alt = ``;
-    item.append(img_2);
+    item_2.append(img_2);
     const img_3 = document.createElement(`img`);
-    img_3.src = ``;
+    img_3.src = `icons/trash.svg`;
     img_3.alt = ``;
-    item.append(img_3);
+    item_3.append(img_3);
     
-    wrapper.append(item);
+    wrapper.append(item_1);
+    wrapper.append(item_2);
+    wrapper.append(item_3);
     
     return newBar;
 }
@@ -222,14 +228,38 @@ function newBarConstr () {
 function openEdit () {
     const lists = document.querySelectorAll(`.list__item`);
     const editBtn = document.querySelectorAll(`.hover_edit`);
-    const editBar = document.querySelectorAll(`.bar_edit`);
+    
     for (let i = 0; i < editBtn.length; i++) {
+
         editBtn[i].addEventListener('click', () => {
             
-            lists[i].append(newBarConstr());
-            editBar[i].classList.add(`active`);
+            const thisEditBtn = lists[i].querySelector(`.hover_edit`);
+
+            // editBtn[i].classList.add(`active`);
+
+            if (lists[i].querySelector(`.bar_edit`) === null) {
+
+                lists[i].append(newBarConstr());
+            }
+
+            const editBar = lists[i].querySelector(`.bar_edit`);
+
+            if (!editBar.classList.contains(`active`)) {
+                console.log(`da`);
+                thisEditBtn.classList.add(`active`);
+                editBar.classList.add(`active`);
+            } else {
+                console.log(`net`);
+                thisEditBtn.classList.remove(`active`);
+                const editBar = lists[i].querySelector(`.bar_edit`);
+                editBar.classList.remove(`active`);
+            }
+
             
-    });
+
+           
+        });
+ 
     }
 }
 
